@@ -91,6 +91,8 @@ class _FilterPageState extends State<FilterPage> {
         ));
   }
 
+  /// filter ui
+
   ListView discountui() {
     return ListView.builder(
         itemCount: listoffilerdiscount.length,
@@ -98,6 +100,7 @@ class _FilterPageState extends State<FilterPage> {
           final f = listoffilerdiscount[i];
           return ListTile(
               onTap: () {
+                // add or remove items from discoutn filter list
                 setState(() {
                   f.isfilter = !f.isfilter;
                 });
@@ -123,7 +126,6 @@ class _FilterPageState extends State<FilterPage> {
                     });
                   } else {
                     setState(() {
-                      // ignore: list_remove_unrelated_type
                       ctrl.disclist.remove(f.discount);
                       log(ctrl.disclist.length.toString());
                     });
@@ -143,6 +145,7 @@ class _FilterPageState extends State<FilterPage> {
           final f = listoffilterprice[i];
           return ListTile(
               onTap: () {
+                // add or remove items from price filter list
                 setState(() {
                   f.isfilter = !f.isfilter;
                 });
@@ -186,6 +189,7 @@ class _FilterPageState extends State<FilterPage> {
           final f = listOfFilterBrands[i];
           return ListTile(
               onTap: () {
+                // add or remove items from brand filter list
                 setState(() {
                   f.isfilter = !f.isfilter;
                 });
