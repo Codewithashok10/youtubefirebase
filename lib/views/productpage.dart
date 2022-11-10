@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:youtubefirebase/controllers/controller.dart';
+import 'package:youtubefirebase/controllers/filtercontroller.dart';
 import 'package:youtubefirebase/views/filterpage.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class ProductPage extends StatelessWidget {
+  ProductPage({super.key});
   final ctrl = Get.put(ProductController());
 
   @override

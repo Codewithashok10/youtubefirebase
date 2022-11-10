@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/instance_manager.dart';
-import 'package:youtubefirebase/controllers/controller.dart';
+import 'package:youtubefirebase/controllers/filtercontroller.dart';
 import 'package:youtubefirebase/models/filtermodel.dart';
 
 class FilterPage extends StatefulWidget {
