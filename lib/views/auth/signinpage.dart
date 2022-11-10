@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:youtubefirebase/controllers/authcontroller.dart';
 import 'package:youtubefirebase/conts/consts.dart';
 import 'package:youtubefirebase/views/auth/authtextfeild.dart';
-import 'package:youtubefirebase/views/auth/signinpage.dart';
+
 import 'package:youtubefirebase/views/auth/signuppage.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  SigninPage({super.key});
+  final controller = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,27 +37,46 @@ class SigninPage extends StatelessWidget {
               height: 20,
             ),
             AuthTextFeild(
+              controller: controller.email,
               hint: "email",
               icon: Icons.email_outlined,
             ),
             AuthTextFeild(
+              controller: controller.password,
               widget: true,
               hint: "password",
               icon: Icons.lock,
+              widgetIcon: Icons.remove_red_eye,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
-              alignment: Alignment.center,
-              height: 52,
-              decoration: BoxDecoration(
-                  color: Colors.blue.shade400,
-                  borderRadius: BorderRadius.circular(12)),
-              child: const Text(
-                "Sign In",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 22,
+            InkWell(
+              onTap: () async {
+                if (controller.email.text.trim().isEmpty &&
+                    controller.password.text.trim().isEmpty) {
+                  Get.snackbar("error", "plz fill all the feilds");
+                } else {
+                  await controller.signin();
+                }
+              },
+              child: Obx(
+                () => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 20),
+                  alignment: Alignment.center,
+                  height: 52,
+                  decoration: BoxDecoration(
+                      color: Colors.blue.shade400,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: controller.loading.value
+                      ? const CircularProgressIndicator(
+                          color: Colors.white,
+                        )
+                      : const Text(
+                          "Sign In",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 22,
+                          ),
+                        ),
                 ),
               ),
             ),

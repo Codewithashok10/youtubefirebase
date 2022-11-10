@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -12,7 +11,7 @@ import 'package:youtubefirebase/views/auth/signinpage.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
-  final controller = Get.put(AuthController());
+  final controller = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +49,7 @@ class SignupPage extends StatelessWidget {
               widget: true,
               hint: "password",
               icon: Icons.lock,
+              widgetIcon: Icons.remove_red_eye,
             ),
             Obx(
               () => InkWell(
@@ -129,7 +129,7 @@ class SignupPage extends StatelessWidget {
                       fontWeight: FontWeight.w500, color: Colors.black54),
                 ),
                 InkWell(
-                  onTap: () => Get.to(() => const SigninPage()),
+                  onTap: () => Get.to(() => SigninPage()),
                   child: const Text(
                     " Login",
                     style: TextStyle(

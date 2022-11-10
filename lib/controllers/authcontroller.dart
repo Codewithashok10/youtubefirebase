@@ -31,6 +31,24 @@ class AuthController extends GetxController {
     }
   }
 
+  signin() async {
+    try {
+      loading.value = true;
+      await auth.signInWithEmailAndPassword(
+          email: email.text, password: password.text);
+
+      Get.snackbar("Login", "success");
+      Get.to(() => HomePage());
+    } catch (e) {
+      Get.snackbar("error", "$e");
+      loading.value = false;
+    }
+  }
+
+  signout() async {
+    await auth.signOut();
+  }
+
   adduserdata(UserModel user) async {
     await db.collection("users").add(user.toJson());
   }
