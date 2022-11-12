@@ -6,7 +6,7 @@ class AuthTextFeild extends StatelessWidget {
   AuthTextFeild(
       {super.key,
       this.controller,
-      this.widgetIcon,
+      this.action,
       this.hint,
       this.icon,
       this.widget = false,
@@ -16,8 +16,9 @@ class AuthTextFeild extends StatelessWidget {
       this.fn});
   TextEditingController? controller;
   String? hint;
-  IconData? icon, widgetIcon;
+  IconData? icon;
   bool widget = false;
+  Widget? action;
   void Function()? fn;
   int? maxline = 1;
   TextInputType? type;
@@ -46,7 +47,7 @@ class AuthTextFeild extends StatelessWidget {
                         prefixIcon: readonly ? null : Icon(icon)),
                   ),
                 ),
-                IconButton(onPressed: fn, icon: Icon(widgetIcon))
+                action ?? SizedBox()
               ],
             )
           : TextFormField(

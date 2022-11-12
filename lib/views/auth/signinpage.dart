@@ -46,7 +46,10 @@ class SigninPage extends StatelessWidget {
               widget: true,
               hint: "password",
               icon: Icons.lock,
-              widgetIcon: Icons.remove_red_eye,
+              action: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.remove_red_eye),
+              ),
             ),
             InkWell(
               onTap: () async {

@@ -6,7 +6,7 @@ import 'package:youtubefirebase/views/filterpage.dart';
 
 class ProductPage extends StatelessWidget {
   ProductPage({super.key});
-  final ctrl = Get.put(ProductController());
+  final ctrl = Get.put(FilterController());
 
   @override
   Widget build(BuildContext context) {

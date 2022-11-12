@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:youtubefirebase/models/datamodel.dart';
 import 'package:http/http.dart' as http;
 
-class ProductController extends GetxController {
+class FilterController extends GetxController {
   var productsList = <Product>[].obs;
   Rx<Products> products = Products().obs;
 

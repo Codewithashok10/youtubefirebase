@@ -50,6 +50,10 @@ class AuthController extends GetxController {
   }
 
   adduserdata(UserModel user) async {
-    await db.collection("users").add(user.toJson());
+    await db
+        .collection("users")
+        .doc(auth.currentUser!.uid)
+        .collection("profile")
+        .add(user.toJson());
   }
 }

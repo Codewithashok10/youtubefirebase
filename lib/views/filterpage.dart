@@ -15,7 +15,7 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
-  final ctrl = Get.put(ProductController());
+  final ctrl = Get.put(FilterController());
   int index = 0;
 
   @override

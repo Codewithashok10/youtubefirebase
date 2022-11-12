@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       smartManagement: SmartManagement.keepFactory,
       debugShowCheckedModeBanner: false,
-      home: auth.currentUser != null ? AddProducts() : SigninPage(),
+      home: auth.currentUser != null ? HomePage() : SigninPage(),
     );
   }
 }
